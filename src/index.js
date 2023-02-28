@@ -3,6 +3,9 @@ const getDiscriminant = (a, b, c) => {
 };
 
 const getRoots = (a, b, c) => {
+  if (a === 0) {
+    throw Error('The equation is not quadratic');
+  }
   const discriminant = getDiscriminant(a, b, c);
   if (discriminant > 0) {
     return [
