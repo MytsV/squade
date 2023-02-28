@@ -17,7 +17,7 @@ const testRootCount = () => {
 
 const precision = 1e-6;
 const testValidity = () => {
-  let fails = [];
+  const fails = [];
   const queries = Object.values(samples).flat();
   for (const query of queries) {
     const roots = solver.getRoots(...query);
@@ -33,7 +33,7 @@ const testValidity = () => {
     fails.forEach((query) => console.error(query));
     process.exit(1);
   }
-}
+};
 
 testRootCount();
 testValidity();
