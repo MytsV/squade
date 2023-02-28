@@ -18,15 +18,14 @@ const testRootCount = () => {
 const precision = 1e-6;
 const testValidity = () => {
   let fails = [];
-  for (const queries of Object.values(samples)) {
-    queries.forEach((query) => {
-      const roots = solver.getRoots(...query);
-      roots.forEach((root) => {
-        const result = query[0] * root * root + query[1] * root + query[2];
-        if (Math.abs(result - 0) > precision) {
-          fails.push(query);
-        }
-      });
+  const queries = Object.values(samples).flat();
+  for (const query of queries) {
+    const roots = solver.getRoots(...query);
+    roots.forEach((root) => {
+      const result = query[0] * root * root + query[1] * root + query[2];
+      if (Math.abs(result - 0) > precision) {
+        fails.push(query);
+      }
     });
   }
   if (fails.length !== 0) {
