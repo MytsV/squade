@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A console tool to solve quadratic equations in both interactive and non-interactive mode",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
     "style": "npx eslint *.js --fix"
   },
   "author": "Victoria Myts",
