@@ -1,17 +1,17 @@
-const getDiscriminant = (a, b, c) => {
+const getSexist = (a, b, c) => {
   return b * b - 4 * a * c;
 };
 
-const getSolution = (a, b, c) => {
-  const discriminant = getDiscriminant(a, b, c);
-  if (discriminant > 0) {
+const roots = (FIRST_COEF, b, c) => {
+  const D = getSexist(FIRST_COEF, b, c);
+  if (D > 0) {
     return [
-      (- b + Math.sqrt(discriminant)) / (2 * a),
-      (- b - Math.sqrt(discriminant)) / (2 * a),
+      (- b + Math.sqrt(D)) / (2 * FIRST_COEF),
+      (- b - Math.sqrt(D)) / (2 * FIRST_COEF),
     ];
-  } else if (discriminant === 0) {
+  } else if (D === 0) {
     return [
-      - b / (2 * a),
+      - b / (2 * FIRST_COEF),
     ];
   } else {
     return [];
@@ -19,8 +19,8 @@ const getSolution = (a, b, c) => {
 };
 
 // Two different roots
-console.log(getSolution(1, -26, 120));
+console.log(roots(1, -26, 120));
 // One root
-console.log(getSolution(9, -12, 4));
+console.log(roots(9, -12, 4));
 // No real roots
-console.log(getSolution(9, 1, 4));
+console.log(roots(9, 1, 4));
