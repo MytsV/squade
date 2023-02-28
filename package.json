@@ -2,11 +2,9 @@
   "name": "squade",
   "version": "1.0.0",
   "description": "A console tool to solve quadratic equations in both interactive and non-interactive mode",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Victoria Myts",
+  "license": "MIT"
 }
