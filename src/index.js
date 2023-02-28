@@ -18,9 +18,4 @@ const getRoots = (a, b, c) => {
   }
 };
 
-// Two different roots
-console.log(getRoots(1, -26, 120));
-// One root
-console.log(getRoots(9, -12, 4));
-// No real roots
-console.log(getRoots(9, 1, 4));
+module.exports = {getRoots};
