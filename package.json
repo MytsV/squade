@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "A console tool to solve quadratic equations in both interactive and non-interactive mode",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "style": "npx eslint *.js --fix"
   },
   "author": "Victoria Myts",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.35.0",
+    "eslint-config-google": "^0.14.0"
+  }
 }
