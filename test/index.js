@@ -1,16 +1,5 @@
 const solver = require('../src/index');
-
-const samples = {
-  '2': [
-    [1, -26, 120],
-  ],
-  '1': [
-    [9, -12, 4],
-  ],
-  '0': [
-    [9, 1, 4],
-  ],
-};
+const samples = require('./samples.json');
 
 const testRootCount = () => {
   for (const [rootCount, queries] of Object.entries(samples)) {
