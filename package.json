@@ -4,7 +4,8 @@
   "description": "A command line tool to solve quadratic equations in both interactive and non-interactive mode",
   "scripts": {
     "start": "node src/index.js",
-    "style": "npx eslint **/*.js --fix"
+    "style": "npx eslint **/*.js --fix",
+    "test": "node test/index.js"
   },
   "author": "Victoria Myts",
   "license": "MIT",
