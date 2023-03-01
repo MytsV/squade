@@ -54,6 +54,21 @@ const getQueryInteractive = async () => {
   return query;
 };
 
+const displayEquation = (a, b, c) => {
+  console.log(`Equation: (${a}) x^2 + (${b}) x + (${c})`);
+};
+
+const displayRoots = (roots) => {
+  if (roots.length === 0) {
+    console.log('There are no real roots.');
+  } else {
+    console.log(`There are ${roots.length} root(s):`);
+    roots.forEach((root, index) => {
+      console.log(`x${index + 1} = ${root}`);
+    });
+  }
+};
+
 const solve = async () => {
   let query;
   if (process.argv.length > 2) {
@@ -61,7 +76,9 @@ const solve = async () => {
   } else {
     query = await getQueryInteractive();
   }
-  console.log(query);
+  displayEquation(...query);
+  const roots = getRoots(...query);
+  displayRoots(roots);
 };
 
 solve();
