@@ -20,8 +20,8 @@ const getRoots = (a, b, c) => {
   }
 };
 
-const isNumber = (n) => {
-  return !isNaN(n) && isFinite(n);
+const isNumeric = (n) => {
+  return /^\d*\.?\d*$/.test(n);
 };
 
 const getQueryInteractive = async () => {
@@ -30,14 +30,13 @@ const getQueryInteractive = async () => {
   const questionNumber = (prompt) => {
     return new Promise((resolve) => {
       rl.question(prompt, async (answer) => {
-        const answerParsed = parseFloat(answer);
-        if (!isNumber(answerParsed)) {
+        if (!isNumeric(answer)) {
           console.error(
               `Error: expected a valid number, got ${answer} instead`,
           );
           await questionNumber(prompt);
         } else {
-          query.push(answerParsed);
+          query.push(Number(answer));
         }
         resolve();
       });
