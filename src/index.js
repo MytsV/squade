@@ -1,11 +1,13 @@
 const readline = require('readline');
 const {stdin: input, stdout: output} = process;
+const path = require('path');
+const fs = require('fs');
 
 const getRoots = (a, b, c) => {
   if (a === 0) {
     throw Error('The equation is not quadratic');
   }
-  const discriminant =  b * b - 4 * a * c;
+  const discriminant = b * b - 4 * a * c;
   if (discriminant > 0) {
     return [
       (- b + Math.sqrt(discriminant)) / 2 / a,
@@ -49,6 +51,23 @@ const getQueryInteractive = async () => {
   return query;
 };
 
+const getQueryFromFile = (file) => {
+  let buffer;
+  try {
+    buffer = fs.readFileSync(path.resolve(file));
+  } catch (e) {
+    console.error(`File ${file} does not exist or is corrupted`);
+    process.exit(1);
+  }
+  const format = /^(\d*\.?\d*)\s(\d*\.?\d*)\s(\d*\.?\d*)\n$/;
+  if (!format.test(buffer.toString())) {
+    console.error(`File format is invalid`);
+    process.exit(1);
+  }
+  const data = format.exec(buffer);
+  return [data[1], data[2], data[3]].map(Number);
+};
+
 const displayEquation = (a, b, c) => {
   console.log(`Equation: (${a}) x^2 + (${b}) x + (${c})`);
 };
@@ -67,12 +86,18 @@ const displayRoots = (roots) => {
 const solve = async () => {
   let query;
   if (process.argv.length > 2) {
-    throw Error('Not implemented yet!');
+    query = getQueryFromFile(process.argv[2]);
   } else {
     query = await getQueryInteractive();
   }
+  let roots;
+  try {
+    roots = getRoots(...query);
+  } catch (e) {
+    console.error(e.toString());
+    process.exit(1);
+  }
   displayEquation(...query);
-  const roots = getRoots(...query);
   displayRoots(roots);
 };
 
