@@ -1,7 +1,11 @@
 # Squade
 
 ## Table of contents
-
+* [General description](#general-description)
+* [Setup and usage](#setup-and-usage)
+* [Interactive mode](#interactive-mode)
+* [Noninteractive mode and file format](#noninteractive-mode)
+* [Revert commit](#revert-commit)
 
 ## General description
 A command line application to compute roots of square equations:\
@@ -29,6 +33,6 @@ Example:
 `1\s0\s0\n`\
 See [examples](https://github.com/MytsV/squade/tree/master/examples) folder for more examples.
 
-### Revert commit
+## Revert commit
 
 Fixed bad update of identifiers by [this](https://github.com/MytsV/squade/commit/b447a7ce7aa5d15afee024484c56031c3d86f746) commit with aa2ebf4b79ed7d51b39633de46916ba8fa8bd1b7 hash.
