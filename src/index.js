@@ -23,7 +23,7 @@ const getRoots = (a, b, c) => {
 };
 
 const isNumeric = (n) => {
-  return /^\d*\.?\d*$/.test(n);
+  return /^-?\d+\.?\d*$/.test(n);
 };
 
 const getQueryInteractive = async () => {
@@ -59,7 +59,7 @@ const getQueryFromFile = (file) => {
     console.error(`File ${file} does not exist or is corrupted`);
     process.exit(1);
   }
-  const format = /^(\d*\.?\d*)\s(\d*\.?\d*)\s(\d*\.?\d*)\n$/;
+  const format = /^(-?\d+\.?\d*)\s(-?\d+\.?\d*)\s(-?\d+\.?\d*)\n$/;
   if (!format.test(buffer.toString())) {
     console.error(`File format is invalid`);
     process.exit(1);
