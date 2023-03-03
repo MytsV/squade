@@ -1,15 +1,11 @@
 const readline = require('readline');
 const {stdin: input, stdout: output} = process;
 
-const getDiscriminant = (a, b, c) => {
-  return b * b - 4 * a * c;
-};
-
 const getRoots = (a, b, c) => {
   if (a === 0) {
     throw Error('The equation is not quadratic');
   }
-  const discriminant = getDiscriminant(a, b, c);
+  const discriminant =  b * b - 4 * a * c;
   if (discriminant > 0) {
     return [
       (- b + Math.sqrt(discriminant)) / 2 / a,
