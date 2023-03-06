@@ -1,4 +1,4 @@
-const solver = require('../src/index');
+const solver = require('../src/roots');
 const samples = require('./samples.json');
 
 const testRootCount = () => {
